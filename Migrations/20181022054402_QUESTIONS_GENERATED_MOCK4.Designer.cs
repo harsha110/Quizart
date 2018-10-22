@@ -9,8 +9,8 @@ using database_rules;
 namespace Project.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20181016085849_QUESTIONS_GENERATED_3")]
-    partial class QUESTIONS_GENERATED_3
+    [Migration("20181022054402_QUESTIONS_GENERATED_MOCK4")]
+    partial class QUESTIONS_GENERATED_MOCK4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,21 @@ namespace Project.Migrations
                 .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Tables.option_table", b =>
+                {
+                    b.Property<int>("option_id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("iscorrect");
+
+                    b.Property<string>("option");
+
+                    b.HasKey("option_id");
+
+                    b.ToTable("option_Table");
+                });
 
             modelBuilder.Entity("Tables.Question_table", b =>
                 {

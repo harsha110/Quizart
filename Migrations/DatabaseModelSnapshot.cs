@@ -18,6 +18,25 @@ namespace Project.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Tables.option_table", b =>
+                {
+                    b.Property<int>("option_id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("iscorrect");
+
+                    b.Property<string>("option");
+
+                    b.Property<int>("question_id");
+
+                    b.HasKey("option_id");
+
+                    b.HasIndex("question_id");
+
+                    b.ToTable("option_Table");
+                });
+
             modelBuilder.Entity("Tables.Question_table", b =>
                 {
                     b.Property<int>("question_id")
@@ -56,6 +75,14 @@ namespace Project.Migrations
                     b.HasKey("template_id");
 
                     b.ToTable("Template");
+                });
+
+            modelBuilder.Entity("Tables.option_table", b =>
+                {
+                    b.HasOne("Tables.Question_table")
+                        .WithMany("options")
+                        .HasForeignKey("question_id")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Tables.Question_table", b =>

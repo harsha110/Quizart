@@ -11507,11 +11507,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CGI\\Documents\\Project\\Project.csproj",
+      "projectUniqueName": "C:\\Users\\CGI\\Documents\\Quizart\\Project.csproj",
       "projectName": "Project",
-      "projectPath": "C:\\Users\\CGI\\Documents\\Project\\Project.csproj",
+      "projectPath": "C:\\Users\\CGI\\Documents\\Quizart\\Project.csproj",
       "packagesPath": "C:\\Users\\CGI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CGI\\Documents\\Project\\obj\\",
+      "outputPath": "C:\\Users\\CGI\\Documents\\Quizart\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

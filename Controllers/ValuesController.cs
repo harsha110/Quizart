@@ -24,24 +24,23 @@ namespace Project.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<get_method_object> Get(string id)
+        public ActionResult<List<Question_table>> Get(string id,[FromQuery] string topic)
         {
             //API_methods api1 = new API_methods();
             // Console.WriteLine("forllopp");
-            get_method_object  value = api.get_Questions(id);
+            return api.retrive1();
+            //= api.get_Questions(id);
             //Console.WriteLine(value);
-            return value;
         }
 
         // POST api/values
         [HttpPost]
-        public ActionResult<Template> Post([FromBody] Template g)
+        public ActionResult<List<Template>> Post([FromBody] post_object g)
         {
             //Console.WriteLine(g.Label_Id);
+            Console.WriteLine("came");
             
-            bool inserted_or_not = api.Insert_in_template(g);
-            
-            return g;
+            return api.Insert_in_template(g);
         }
 
         // PUT api/values/5
@@ -54,9 +53,9 @@ namespace Project.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-             bool val =api.remove_in(id ); 
-            if(val==true)
-            return Ok("Data deleted from table");
+            //  bool val =api.remove_in(id ); 
+            // if(val==true)
+            // return Ok("Data deleted from table");
         
             return BadRequest("Could not delete as the entry does not exist");
         }

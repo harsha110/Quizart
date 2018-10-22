@@ -3,10 +3,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Project.Migrations
 {
-    public partial class QUESTIONS_GENERATED : Migration
+    public partial class QUESTIONS_GENERATED_MOCK4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "option_Table",
+                columns: table => new
+                {
+                    option_id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    option = table.Column<string>(nullable: true),
+                    iscorrect = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_option_Table", x => x.option_id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Template",
                 columns: table => new
@@ -53,6 +67,9 @@ namespace Project.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "option_Table");
+
             migrationBuilder.DropTable(
                 name: "Question_Table");
 
