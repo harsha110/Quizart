@@ -38,6 +38,7 @@ namespace Tables {
     public class get_method_object
     {
         public  List<string> related_questions { get; set; }
+        public  List<string> related_options { get; set; }
     }
 
     public class post_object
